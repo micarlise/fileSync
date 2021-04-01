@@ -1,0 +1,25 @@
+{
+  "name": "filesync",
+  "version": "0.1.0",
+  "description": "sync files across workspaces ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micarlise/fileSync.git"
+  },
+  "author": "M Carlise <micarlise@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micarlise/fileSync/issues"
+  },
+  "homepage": "https://github.com/micarlise/fileSync#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
