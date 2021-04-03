@@ -2,6 +2,7 @@ const express = require('express');
 
 const multer = require('multer');
 const path = require('path');
+const statFile = require('fs/promises').stat;
 
 const blockStorage = require('../utils/filestore');
 
@@ -19,8 +20,16 @@ function uploadBlock(req, res) {
 
 function downloadBlock(req, res) {
 
-    let pathPrefix = path.join(__dirname, '../filestore');
-    res.download(pathPrefix + '/' + req.params.blockId);
+    const pathPrefix = path.join(__dirname, '../filestore');
+    const fullPath = pathPrefix + '/' + req.params.blockId;
+
+    statFile(fullPath)
+    .then(() => {
+        res.download(pathPrefix + '/' + req.params.blockId);
+    }).catch(() => {
+        res.status(404);
+        res.end();
+    });
 }
 
 let upload = multer({
