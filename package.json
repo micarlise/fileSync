@@ -4,7 +4,8 @@
   "description": "sync files across workspaces ",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha --exit"
+    "test": "npx mocha --exit",
+    "dev": "npx nodemon index.js"
   },
   "repository": {
     "type": "git",
