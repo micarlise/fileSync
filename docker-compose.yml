@@ -6,3 +6,11 @@ services:
       - POSTGRES_PASSWORD=mysecretpassword
     ports:
       - 5432:5432
+  setup_pg:
+    image: postgres:13.3
+    depends_on:
+      - postgres
+    restart: "no"
+    entrypoint: [ "bash", "-c", "sleep 20 && PGPASSWORD=mysecretpassword psql -h postgres -U postgres < /models/files.sql" ]
+    volumes:
+      - ./models:/models

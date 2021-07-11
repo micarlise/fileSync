@@ -1,0 +1,17 @@
+CREATE DATABASE filesync;
+
+\c filesync
+
+CREATE TABLE blocks (
+    block_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    shasum TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE files (
+    file_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    filename TEXT UNIQUE NOT NULL,
+    block_id INTEGER REFERENCES blocks(block_id) ON DELETE CASCADE,
+    last_modified TIMESTAMP
+);
+
+CREATE INDEX ON files (filename);
