@@ -1,7 +1,7 @@
 const request = require('supertest');
 const express = require('express');
 
-const blocksRouter = require('../routes/blocks');
+const blocksRouter = require('../src/routes/blocks');
 
 const app = express();
 

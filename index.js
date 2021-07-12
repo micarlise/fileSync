@@ -5,7 +5,7 @@ const morgan = require('morgan');
 let logger = morgan('short');
 let app = express();
 
-let blockRouter = require('./routes/blocks');
+let blockRouter = require('./src/routes/blocks');
 
 app.use(logger);
 app.use('/block', blockRouter);
